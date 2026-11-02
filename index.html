@@ -344,7 +344,112 @@
       .tilt-card:hover .level-menengah { background: var(--primary); color: white; }
 
       /* =========================================
-         7. CONTACT SECTION
+         7. PROJECTS SECTION (UPDATED WITH IMAGES & LINKS)
+         ========================================= */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: var(--radius-card);
+        padding: 25px;
+        border: 1px solid #f1f5f9;
+        box-shadow: var(--shadow-soft);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-glow);
+        border-color: rgba(37, 99, 235, 0.3);
+      }
+
+      .project-img-box {
+        width: 100%;
+        height: 200px;
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        position: relative;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+      }
+
+      .project-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-img-box img {
+        transform: scale(1.06);
+      }
+
+      .project-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--text-main);
+      }
+
+      .project-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .project-tag {
+        background: #f1f5f9;
+        color: var(--primary);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 5px 14px;
+        border-radius: 30px;
+        border: 1px solid rgba(37, 99, 235, 0.15);
+      }
+
+      .project-footer {
+        padding-top: 15px;
+        border-top: 1px solid #f1f5f9;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .project-link-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+
+      .project-link-btn:hover {
+        color: var(--primary-dark);
+        transform: translateX(3px);
+      }
+
+      /* =========================================
+         8. CONTACT SECTION
          ========================================= */
       .contact-section { background: white; border-radius: 40px; box-shadow: var(--shadow-soft); padding: 60px; overflow: hidden; }
       .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
@@ -385,7 +490,7 @@
       .btn-submit:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
       /* =========================================
-         8. UTILITIES
+         9. UTILITIES
          ========================================= */
       #scrollTopBtn {
         position: fixed; bottom: 30px; right: 30px;
@@ -402,7 +507,7 @@
       .reveal.active { opacity: 1; transform: translateY(0); }
 
       /* =========================================
-         9. RESPONSIVE
+         10. RESPONSIVE
          ========================================= */
       @media (max-width: 991px) { 
         .about-container, .grid-2, .contact-grid { grid-template-columns: 1fr; } 
@@ -432,6 +537,7 @@
         <a href="#about" onclick="toggleMenu()">Tentang</a>
         <a href="#resume" onclick="toggleMenu()">Resume</a>
         <a href="#skills" onclick="toggleMenu()">Keahlian</a>
+        <a href="#projects" onclick="toggleMenu()">Proyek</a>
         <a href="#contact" class="btn-cta" onclick="toggleMenu()">Hubungi Saya</a>
       </div>
     </nav>
@@ -549,7 +655,6 @@
           </h3>
           <div class="timeline-section">
             <div class="timeline-box">
-              
               <div class="timeline-item">
                 <span class="timeline-dot"></span>
                 <div class="timeline-date">2025</div>
@@ -618,6 +723,100 @@
           <h3 class="skill-name">Creative Writing</h3>
           <p class="skill-desc">Cerita Pendek & Novel</p>
           <span class="skill-badge level-pemula">Pemula</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTOFOLIO PROYEK -->
+    <section id="projects">
+      <div class="section-header reveal">
+        <span class="section-label">PORTOFOLIO</span>
+        <h2 class="section-title">Proyek Pilihan</h2>
+      </div>
+
+      <div class="projects-grid reveal">
+        <!-- 1. NatriWatch -->
+        <div class="project-card">
+          <div class="project-img-box">
+            <img src="natriwatch.png" alt="NatriWatch Website" />
+          </div>
+          <h3 class="project-title">NatriWatch</h3>
+          <p class="project-desc">
+            Pengembangan website untuk monitoring konsumsi natrium harian dengan integrasi Firebase sebagai database real-time.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">Web Development</span>
+            <span class="project-tag">Health Tech</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://natriwatch.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Kunjungi Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. CalendarWeb -->
+        <div class="project-card">
+          <div class="project-img-box">
+            <img src="calendarweb.png" alt="CalendarWeb FK UMM" />
+          </div>
+          <h3 class="project-title">CalendarWeb</h3>
+          <p class="project-desc">
+            Pengembangan website untuk pengelolaan kalender agenda kegiatan dan portal pengarsipan LPJ digital berbasis Supabase.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Supabase</span>
+            <span class="project-tag">Arsip Digital</span>
+            <span class="project-tag">Management System</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://calendarfkumm.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Kunjungi Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. KUKANG EV ITERA -->
+        <div class="project-card">
+          <div class="project-img-box">
+            <img src="kukangweb.png" alt="KUKANG EV ITERA Website" />
+          </div>
+          <h3 class="project-title">Website KUKANG EV ITERA</h3>
+          <p class="project-desc">
+            Pengembangan website profil dan portal informasi resmi tim KUKANG EV ITERA menggunakan framework React dan TypeScript.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">Company Profile</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://webkukang.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+              Kunjungi Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Gesture Recognition -->
+        <div class="project-card">
+          <div class="project-img-box">
+            <img src="gesture-recognition.jpg" alt="Gesture Recognition dengan Python" />
+          </div>
+          <h3 class="project-title">Gesture Recognition</h3>
+          <p class="project-desc">
+            Implementasi pemrograman Python untuk pengolahan citra digital dan sistem pengenalan gerak (gesture recognition).
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Computer Vision</span>
+            <span class="project-tag">Image Processing</span>
+          </div>
+          <div class="project-footer">
+            <a href="#" class="project-link-btn">
+              Pelajari Lebih Lanjut <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -756,5 +955,3 @@
     </script>
   </body>
 </html>
-
-
